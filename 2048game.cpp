@@ -13,17 +13,47 @@
 ----------------------------
 |  12 |  13  |  14  |  15  |
 ----------------------------
+
 ³W«h¡G
-1.¹CÀ¸¶}©l®É¥Í¦¨¨â­Ó¼Æ¦r¡C 
-2.¥Í¦¨ªº¼Æ¦r¥i¯à¬°2©Î4¡A2ªº¥X²{¾÷²v=90%¡A4ªº¥X²{¾÷²v=10%¡C 
-3.¨C¦¸²¾°Ê¥i¿ï¾Ü¤W¤U¥ª¥k¤§¤¤ªº¤@­Ó¤è¦V¡C 
-4.²¾°Ê«á·|¦bªÅ®æ³BÀH¾÷¥Í¦¨¤@­Ó¼Æ¦r¡A¥Í¦¨¤èªk¦P³W«h2¡C
-5.²¾°Ê®É¡A·|±N©Ò¦³¼Æ¦r©¹²¾°Êªº¤è¦V¶i¦æ²¾°Ê»P¨â¨â¦X¨Ö¡A¦X¨Ö«áªº¼Æ¦r¤£·|¦A¶i¦æ­«½Æ¦X¨Ö
-6.­Y¥X²{(2,2,2,0)ªº±¡ªp®É¡A­Y©¹¥ª¤è²¾°Ê·|¥X²{ 
 
+1.  ¹CÀ¸¶}©l®É¥Í¦¨¨â­Ó¼Æ¦r¡C 
+2.  ¥Í¦¨ªº¼Æ¦r¥i¯à¬°2©Î4¡A2ªº¥X²{¾÷²v=90%¡A4ªº¥X²{¾÷²v=10%¡C 
+3.  ¨C¦¸²¾°Ê¥i¿ï¾Ü¤W¤U¥ª¥k¤§¤¤ªº¤@­Ó¤è¦V¡C 
+4.  ²¾°Ê«á·|¦bªÅ®æ³BÀH¾÷¥Í¦¨¤@­Ó¼Æ¦r¡A¥Í¦¨¤èªk¦P³W«h2¡C
+5.  ²¾°Ê®É¡A·|±N©Ò¦³¼Æ¦r©¹²¾°Êªº¤è¦V¶i¦æ²¾°Ê»P¨â¨â¦X¨Ö¡A¦X¨Ö«áªº¼Æ¦r¤£·|¦A¶i¦æ­«½Æ¦X¨Ö
+6.  ­Y¥X²{(2,2,2,0)ªº±¡ªp®É¡A©¹¥ª¤è²¾°Ê·|¥X²{(4,2,0,0)¡A¦Ó¤£¬O(2,4,0,0)¡A¥ªÃäªº·|¥ý¦X¨Ö 
 
+¥\¯àªí¡G
 
+1.  random_generate_2_or_4()  //ÀH¾÷¦b´Ñ½L¤¤¥Í¦¨2©Î4 
+2.  *combine(int *a, int *b, int *c, int *d)  //¦X¨Ö¤@¦æ¼Æ¦r
+3.  record()  //¬ö¿ý¤W¤@¨B 
+4.  record_now()  //¼È¦s²{¦b§½­± 
+5.  back_to_record()  //¦^¨ì¤W¤@¨B 
+6.  back_to_now()  //¦^¨ì²¾°Ê«e§½­± 
+7.  compare_with_now()  //±N²¾°Ê«áªº§½­±©M²¾°Ê«eªº§½­±¤ñ¸û¡A1¥Nªí¤£¤@¼Ë¡A0¥Nªí¤@¼Ë
+8.  show()  //¦L¥X²{¦b§½­± 
+9.  up()  //¦V¤W²¾ 
+10. right()  //¦V¥k²¾ 
+11. down()  //¦V¤U²¾ 
+12. left()  //¦V¥ª²¾ 
+13. check_end()  //ÀË¬d¬O§_¹CÀ¸µ²§ô¨Ã¦^¶Çµ²ªG¡A1¥Nªí¹CÀ¸µ²§ô¡A0¥NªíÁÙ¥i¥HÄ~Äòª±  
 
+¥\¯àÃö«Yªí¡G 
+
+1.  ¥]§t¡G
+2.  ¥]§t¡G  
+3.  ¥]§t¡G  
+4.  ¥]§t¡G  
+5.  ¥]§t¡G 
+6.  ¥]§t¡G
+7.  ¥]§t¡G  
+8.  ¥]§t¡G
+9.  ¥]§t¡G1.2.4.7.  
+10. ¥]§t¡G1.2.4.7.
+11. ¥]§t¡G1.2.4.7.
+12. ¥]§t¡G1.2.4.7.
+13. ¥]§t¡G4.6.7.9.10.11.12.
 */
 int array_2048[16]={0};//¹ê»Ú2048¹CÀ¸¤º®e 
 int record_array_2048[16]={0};//¬ö¿ý¤W¤@¨Bªº2048¹CÀ¸¤º®e 
@@ -92,51 +122,17 @@ void *combine(int *a, int *b, int *c, int *d)	//¦X¨Ö¥ô·N¤@±Ærow©Î¤@¦Ccolumnªº¥|­
 		*b = *(combine_arr+1);
 		*c = *(combine_arr+2);
 		*d = *(combine_arr+3);
-	} 
-	
-}
-
-void up()
-{
-	combine(array_2048+0,array_2048+4,array_2048+8,array_2048+12);//0 4 8 12
-	combine(array_2048+1,array_2048+5,array_2048+9,array_2048+13);//1 5 9 13
-	combine(array_2048+2,array_2048+6,array_2048+10,array_2048+14);//2 6 10 14
-	combine(array_2048+3,array_2048+7,array_2048+11,array_2048+15);//3 7 11 15
-}
-
-void right()
-{
-	combine(array_2048+3,array_2048+2,array_2048+1,array_2048+0);//3 2 1 0
-	combine(array_2048+7,array_2048+6,array_2048+5,array_2048+4);//7 6 5 4
-	combine(array_2048+11,array_2048+10,array_2048+9,array_2048+8);//11 10 9 8
-	combine(array_2048+15,array_2048+14,array_2048+13,array_2048+12);//15 14 13 12
-	
-}
-
-void down()
-{
-	combine(array_2048+12,array_2048+8,array_2048+4,array_2048+0);//12 8 4 0
-	combine(array_2048+13,array_2048+9,array_2048+5,array_2048+1);//13 9 5 1
-	combine(array_2048+14,array_2048+10,array_2048+6,array_2048+2);//14 10 6 2
-	combine(array_2048+15,array_2048+11,array_2048+7,array_2048+3);//15 11 7 3
-}
-
-void left()
-{
-	combine(array_2048+0,array_2048+1,array_2048+2,array_2048+3);//0 1 2 3
-	combine(array_2048+4,array_2048+5,array_2048+6,array_2048+7);//4 5 6 7
-	combine(array_2048+8,array_2048+9,array_2048+10,array_2048+11);//8 9 10 11
-	combine(array_2048+12,array_2048+13,array_2048+14,array_2048+15);//12 13 14 15
+	} 	
 }
 void record()//¬ö¿ý¤W¤@¨B 
 {
 	int i = 0;
 	for (i=0;i<16;i++)
 	{
-		*(record_array_2048+i)=*(array_2048+i);
+		*(record_array_2048+i)=*(now_array_2048+i);
 	}
 }
-void record_now()//¬ö¿ý³o¤@¨B 
+void record_now()//¬ö¿ý²¾°Ê«eªº§½­± 
 {
 	int i = 0;
 	for (i=0;i<16;i++)
@@ -144,7 +140,6 @@ void record_now()//¬ö¿ý³o¤@¨B
 		*(now_array_2048+i)=*(array_2048+i);
 	}
 }
-
 void back_to_record()//¦^¨ì¬ö¿ý(¤W¤@¨B) 
 {
 	int i = 0;
@@ -153,7 +148,7 @@ void back_to_record()//¦^¨ì¬ö¿ý(¤W¤@¨B)
 		*(array_2048+i)=*(record_array_2048+i);
 	}
 } 
-void back_to_now()//¦^¨ì¬ö¿ý(³o¤@¨B) 
+void back_to_now()//¦^¨ì²¾°Ê«eªº§½­± 
 {
 	int i = 0;
 	for (i=0;i<16;i++)
@@ -161,8 +156,7 @@ void back_to_now()//¦^¨ì¬ö¿ý(³o¤@¨B)
 		*(array_2048+i)=*(now_array_2048+i);
 	}
 } 
-
-int compare_with_now()//§â³o¤@¨B¬ö¿ý¤º®e©M2048¹CÀ¸¤º®e°µ¤ñ¸û¨Ã¦^¶Çµ²ªG¡A1¥Nªí¤£¤@¼Ë¡A0¥Nªí¤@¼Ë
+int compare_with_now()//±N²¾°Ê«áªº§½­±©M²¾°Ê«eªº§½­±¤ñ¸û¡A1¥Nªí¤£¤@¼Ë¡A0¥Nªí¤@¼Ë
 {
 	int i = 0;
 	for (i=0;i<16;i++)
@@ -174,35 +168,9 @@ int compare_with_now()//§â³o¤@¨B¬ö¿ý¤º®e©M2048¹CÀ¸¤º®e°µ¤ñ¸û¨Ã¦^¶Çµ²ªG¡A1¥Nªí¤£¤
 	}
 	return 0;
 }
-int check_end()//ÀË¬d¬O§_¹CÀ¸µ²§ô¨Ã¦^¶Çµ²ªG¡A1¥Nªí¹CÀ¸µ²§ô¡A0¥NªíÁÙ¥i¥HÄ~Äòª± 
-{
-	record_now();
-	up();	
-	if (compare_with_now() == 1){
-		return 1;
-	}
-	back_to_now();
-	right();
-	if (compare_with_now() == 1){
-		return 1;
-	}
-	back_to_now();
-	down();
-	if (compare_with_now() == 1){
-		return 1;
-	}
-	back_to_now();
-	left();
-	if (compare_with_now() == 1){
-		return 1;
-	}
-	back_to_now();
-	return 0 ;
-}
-
 void show()//¦L¥X2048¹CÀ¸¤º®e 
 {
-	printf("-------------------------\n");
+	printf("\n-------------------------\n");
 	printf("|%5d|%5d|%5d|%5d|\n",*(array_2048+0),*(array_2048+1),*(array_2048+2),*(array_2048+3));
 	printf("-------------------------\n");
 	printf("|%5d|%5d|%5d|%5d|\n",*(array_2048+4),*(array_2048+5),*(array_2048+6),*(array_2048+7));
@@ -212,26 +180,101 @@ void show()//¦L¥X2048¹CÀ¸¤º®e
 	printf("|%5d|%5d|%5d|%5d|\n",*(array_2048+12),*(array_2048+13),*(array_2048+14),*(array_2048+15));
 	printf("-------------------------\n");
 }
+void up()
+{
+	record_now();
+	combine(array_2048+0,array_2048+4,array_2048+8,array_2048+12);//0 4 8 12
+	combine(array_2048+1,array_2048+5,array_2048+9,array_2048+13);//1 5 9 13
+	combine(array_2048+2,array_2048+6,array_2048+10,array_2048+14);//2 6 10 14
+	combine(array_2048+3,array_2048+7,array_2048+11,array_2048+15);//3 7 11 15
+	if (compare_with_now()==1) //¦pªG§½­±¦³§ïÅÜ¡A´NÀH¾÷¥Í¦¨¼Æ¦r¡A¨Ã¦L¥X§½­± 
+	{
+		random_generate_2_or_4();
+	}
+	else //¦pªG§½­±¨S¦³§ïÅÜ¡A´NÅã¥Ü°T®§ 
+	{
+		printf("¤£¯à©¹¤W\n");
+	}
+}
+void right()
+{
+	record_now();
+	combine(array_2048+3,array_2048+2,array_2048+1,array_2048+0);//3 2 1 0
+	combine(array_2048+7,array_2048+6,array_2048+5,array_2048+4);//7 6 5 4
+	combine(array_2048+11,array_2048+10,array_2048+9,array_2048+8);//11 10 9 8
+	combine(array_2048+15,array_2048+14,array_2048+13,array_2048+12);//15 14 13 12
+	if (compare_with_now()==1) //¦pªG§½­±¦³§ïÅÜ¡A´NÀH¾÷¥Í¦¨¼Æ¦r¡A¨Ã¦L¥X§½­± 
+	{
+		random_generate_2_or_4();
+	}
+	else //¦pªG§½­±¨S¦³§ïÅÜ¡A´NÅã¥Ü°T®§ 
+	{
+		printf("¤£¯à©¹¥k\n");
+	}
+}
+void down()
+{
+	record_now();
+	combine(array_2048+12,array_2048+8,array_2048+4,array_2048+0);//12 8 4 0
+	combine(array_2048+13,array_2048+9,array_2048+5,array_2048+1);//13 9 5 1
+	combine(array_2048+14,array_2048+10,array_2048+6,array_2048+2);//14 10 6 2
+	combine(array_2048+15,array_2048+11,array_2048+7,array_2048+3);//15 11 7 3
+	if (compare_with_now()==1) //¦pªG§½­±¦³§ïÅÜ¡A´NÀH¾÷¥Í¦¨¼Æ¦r¡A¨Ã¦L¥X§½­± 
+	{
+		random_generate_2_or_4();
+	}
+	else //¦pªG§½­±¨S¦³§ïÅÜ¡A´NÅã¥Ü°T®§ 
+	{
+		printf("¤£¯à©¹¤U\n");
+	}
+}
+void left()
+{
+	record_now();
+	combine(array_2048+0,array_2048+1,array_2048+2,array_2048+3);//0 1 2 3
+	combine(array_2048+4,array_2048+5,array_2048+6,array_2048+7);//4 5 6 7
+	combine(array_2048+8,array_2048+9,array_2048+10,array_2048+11);//8 9 10 11
+	combine(array_2048+12,array_2048+13,array_2048+14,array_2048+15);//12 13 14 15
+	if (compare_with_now()==1) //¦pªG§½­±¦³§ïÅÜ¡A´NÀH¾÷¥Í¦¨¼Æ¦r¡A¨Ã¦L¥X§½­± 
+	{
+		random_generate_2_or_4();
+	}
+	else //¦pªG§½­±¨S¦³§ïÅÜ¡A´NÅã¥Ü°T®§ 
+	{
+		printf("¤£¯à©¹¥ª\n");
+	}
+}
+void check_end()//ÀË¬d¬O§_¹CÀ¸µ²§ô¡A¦pªG¹CÀ¸µ²§ô´NÅã¥Ü¹CÀ¸µ²§ô¡A§_«h¤£°µ¥ô¦ó°Ê§@(¤W¤U¥ª¥k¦U¶]¤@¹M¡A¦pªG³£¨SÅÜ´N¥Nªí¹CÀ¸µ²§ô)
+{
+	record_now();//¼È¦s²¾°Ê«eªº§½­± 
+	int i = 0 ;
+	up();	//©¹¤W 
+	if (compare_with_now() == 1){
+		i++;
+	}
+	back_to_now();
+	right();//©¹¥k 
+	if (compare_with_now() == 1){
+		i++;
+	}
+	back_to_now();
+	down();//©¹¤U 
+	if (compare_with_now() == 1){
+		i++;
+	}
+	back_to_now();
+	left();//©¹¥ª 
+	if (compare_with_now() == 1){
+		i++;
+	}
+	back_to_now();//¦^¨ì²¾°Ê«eªº§½­± 
+	if(i==0)
+	{		
+		printf("¹CÀ¸µ²§ô");	
+	}
+}
 int main()
 {
-	/*
-	int i = 0 ;
-	srand(time(NULL));
-	while(i++<100){
-		//int a =	2 * (((rand()%10+1)/10)+1);
-		int a =	(rand()%10+1);
-		printf("%d\n",a);
-	}
-	
-	int ch;
-	while (1)
-	{
-		while(ch=getch())
-		{
-			printf("%d\n",ch);	
-		} 
-	}
-	*/
 	random_generate_2_or_4();
 	random_generate_2_or_4();
 	show();	
@@ -240,9 +283,8 @@ int main()
 	while(1)
 	{
 		printf("½Ð¿é¤J«öÁä\n");
-		if(ch1=getch())
+		if(ch1=getch())//¨Ï¥Îgetch¨Ó¨ú±oÁä½L«ü¥O¡A¦pªG¬O¤W¤U¥ª¥kªº¸Ü¡A·|¤@¦¸¦^¶Ç¨â­Ó­È¡A²Ä¤@­Ó­È¬Ò¬°224¡A­n®Ú¾Ú²Ä¤G­Ó­È¤~¯à§PÂ_¤W¤U¥ª¥k 
 		{
-			//printf("%d",ch1);
 			if (ch1 == 224)
 			{
 				ch2 = getch();
@@ -251,51 +293,33 @@ int main()
 				case 72 : 
 					printf("¤W\n"); 					
 					up();
-					random_generate_2_or_4();
 					show();
 					break;
-					
-					
-					
-					
 				case 80 : 
 					printf("¤U\n"); 
 					down();
-					random_generate_2_or_4();
 					show();
 					break;
 				case 75 : 
 					printf("¥ª\n"); 
 					left();
-					random_generate_2_or_4();
 					show();
 					break;
 				case 77 : 
 					printf("¥k\n"); 
 					right();
-					random_generate_2_or_4();
 					show();
 					break;
 				default : 
 					printf("µL®Ä«öÁä\n"); 
 					break; 
-				}	
+				}
+				check_end();	
 			}
 			else
 			{
 				printf("µL®Ä«öÁä\n"); 
 			}
-			
-				
     	} 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 } 
-
