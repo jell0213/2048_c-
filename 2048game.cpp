@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> 
+#include <conio.h>
 /*
 «Å§i¤@­Ó«ü¼Ð«¬ºAªº°}¦C¡A0~15¶µ¤À§O¬°2048¤¤ªº¥|­Ó®æ¤l 
 ----------------------------
@@ -11,13 +13,35 @@
 ----------------------------
 |  12 |  13  |  14  |  15  |
 ----------------------------
+³W«h¡G
+1.¹CÀ¸¶}©l®É¥Í¦¨¨â­Ó¼Æ¦r¡C 
+2.¥Í¦¨ªº¼Æ¦r¥i¯à¬°2©Î4¡A2ªº¥X²{¾÷²v=90%¡A4ªº¥X²{¾÷²v=10%¡C 
+3.¨C¦¸²¾°Ê¥i¿ï¾Ü¤W¤U¥ª¥k¤§¤¤ªº¤@­Ó¤è¦V¡C 
+4.²¾°Ê«á·|¦bªÅ®æ³BÀH¾÷¥Í¦¨¤@­Ó¼Æ¦r¡A¥Í¦¨¤èªk¦P³W«h2¡C
+5.²¾°Ê®É¡A·|±N©Ò¦³¼Æ¦r©¹²¾°Êªº¤è¦V¶i¦æ²¾°Ê»P¨â¨â¦X¨Ö¡A¦X¨Ö«áªº¼Æ¦r¤£·|¦A¶i¦æ­«½Æ¦X¨Ö
+6.­Y¥X²{(2,2,2,0)ªº±¡ªp®É¡A­Y©¹¥ª¤è²¾°Ê·|¥X²{ 
+
+
+
+
 */
 int array_2048[16]={0};//¹ê»Ú2048¹CÀ¸¤º®e 
 int record_array_2048[16]={0};//¬ö¿ý¤W¤@¨Bªº2048¹CÀ¸¤º®e 
 int now_array_2048[16]={0};//¬ö¿ý³o¤@¨Bªº2048¹CÀ¸¤º®e 
 void random_generate_2_or_4()
 {
-	
+	int flag = 0 ;
+    int num = 0 ;
+    srand(time(NULL));
+	while (!flag)
+	{
+		num = rand()%16 ;
+		if (array_2048[num] == 0)
+		{
+			array_2048[num] = 2 * (((rand()%10+1)/10)+1) ; //¥Í¦¨ªº¼Æ¦r¥i¯à¬°2©Î4¡A2ªº¥X²{¾÷²v=90%¡A4ªº¥X²{¾÷²v=10%
+			flag = 1 ;
+		}
+	}	
 }
 void *combine(int *a, int *b, int *c, int *d)	//¦X¨Ö¥ô·N¤@±Ærow©Î¤@¦Ccolumnªº¥|­Ó¼Æ¦r¡A¥Ñ²Ä¥|¶µ©¹²Ä¤@¶µ¦X¨Ö 
 {
@@ -134,7 +158,7 @@ void back_to_now()//¦^¨ì¬ö¿ý(³o¤@¨B)
 	int i = 0;
 	for (i=0;i<16;i++)
 	{		
-		*(array_2048+i)=*(record_array_2048+i);
+		*(array_2048+i)=*(now_array_2048+i);
 	}
 } 
 
@@ -143,7 +167,7 @@ int compare_with_now()//§â³o¤@¨B¬ö¿ý¤º®e©M2048¹CÀ¸¤º®e°µ¤ñ¸û¨Ã¦^¶Çµ²ªG¡A1¥Nªí¤£¤
 	int i = 0;
 	for (i=0;i<16;i++)
 	{
-		if(*(record_array_2048+i)!=*(array_2048+i))
+		if(*(now_array_2048+i)!=*(array_2048+i))
 		{
 			return 1 ;
 		}
@@ -152,28 +176,27 @@ int compare_with_now()//§â³o¤@¨B¬ö¿ý¤º®e©M2048¹CÀ¸¤º®e°µ¤ñ¸û¨Ã¦^¶Çµ²ªG¡A1¥Nªí¤£¤
 }
 int check_end()//ÀË¬d¬O§_¹CÀ¸µ²§ô¨Ã¦^¶Çµ²ªG¡A1¥Nªí¹CÀ¸µ²§ô¡A0¥NªíÁÙ¥i¥HÄ~Äòª± 
 {
-	record();
 	record_now();
 	up();	
-	if (compare_with_record() == 1){
+	if (compare_with_now() == 1){
 		return 1;
 	}
-	back_to_now()
+	back_to_now();
 	right();
-	if (compare_with_record() == 1){
+	if (compare_with_now() == 1){
 		return 1;
 	}
-	back_to_now()
+	back_to_now();
 	down();
-	if (compare_with_record() == 1){
+	if (compare_with_now() == 1){
 		return 1;
 	}
-	back_to_now()
+	back_to_now();
 	left();
-	if (compare_with_record() == 1){
+	if (compare_with_now() == 1){
 		return 1;
 	}
-	back_to_now()
+	back_to_now();
 	return 0 ;
 }
 
@@ -191,5 +214,88 @@ void show()//¦L¥X2048¹CÀ¸¤º®e
 }
 int main()
 {
+	/*
+	int i = 0 ;
+	srand(time(NULL));
+	while(i++<100){
+		//int a =	2 * (((rand()%10+1)/10)+1);
+		int a =	(rand()%10+1);
+		printf("%d\n",a);
+	}
+	
+	int ch;
+	while (1)
+	{
+		while(ch=getch())
+		{
+			printf("%d\n",ch);	
+		} 
+	}
+	*/
+	random_generate_2_or_4();
+	random_generate_2_or_4();
+	show();	
+	int ch1 = 0 ;
+	int ch2 = 0 ;
+	while(1)
+	{
+		printf("½Ð¿é¤J«öÁä\n");
+		if(ch1=getch())
+		{
+			//printf("%d",ch1);
+			if (ch1 == 224)
+			{
+				ch2 = getch();
+				switch(ch2)
+				{
+				case 72 : 
+					printf("¤W\n"); 					
+					up();
+					random_generate_2_or_4();
+					show();
+					break;
+					
+					
+					
+					
+				case 80 : 
+					printf("¤U\n"); 
+					down();
+					random_generate_2_or_4();
+					show();
+					break;
+				case 75 : 
+					printf("¥ª\n"); 
+					left();
+					random_generate_2_or_4();
+					show();
+					break;
+				case 77 : 
+					printf("¥k\n"); 
+					right();
+					random_generate_2_or_4();
+					show();
+					break;
+				default : 
+					printf("µL®Ä«öÁä\n"); 
+					break; 
+				}	
+			}
+			else
+			{
+				printf("µL®Ä«öÁä\n"); 
+			}
+			
+				
+    	} 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 } 
 
